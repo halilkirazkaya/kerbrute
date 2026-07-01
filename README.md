@@ -1,5 +1,8 @@
 # Kerbrute
 
+This fork updates the project for Go 1.22+ and adds a GoReleaser/GitHub Actions release flow so prebuilt binaries can be downloaded easily from GitHub Releases.
+Only small dependency, syntax, and formatting updates were made to keep the original application behavior intact.
+
 A tool to quickly bruteforce and enumerate valid Active Directory accounts through Kerberos Pre-Authentication
 
 Grab the latest binaries from the [releases page](https://github.com/halilkirazkaya/kerbrute/releases/latest) to get started.
