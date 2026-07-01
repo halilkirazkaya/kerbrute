@@ -1,5 +1,4 @@
 # Kerbrute
-[![CircleCI](https://circleci.com/gh/ropnop/kerbrute.svg?style=svg)](https://circleci.com/gh/ropnop/kerbrute)
 
 A tool to quickly bruteforce and enumerate valid Active Directory accounts through Kerberos Pre-Authentication
 

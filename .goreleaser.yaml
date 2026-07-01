@@ -1,0 +1,41 @@
+version: 2
+project_name: kerbrute
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - id: kerbrute
+    main: ./main.go
+    binary: kerbrute
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - windows
+      - darwin
+      - freebsd
+      - openbsd
+      - netbsd
+    goarch:
+      - amd64
+      - arm64
+      - 386
+    flags:
+      - -trimpath
+    ldflags:
+      - "-s -w -X github.com/ropnop/kerbrute/util.Version=v{{ .Version }} -X github.com/ropnop/kerbrute/util.GitCommit={{ .ShortCommit }} -X github.com/ropnop/kerbrute/util.BuildDate={{ .Date }} -X github.com/ropnop/kerbrute/util.GoVersion={{ .Env.GOVERSION }}"
+
+archives:
+  - id: custom
+    formats:
+      - binary
+    name_template: "{{ .ProjectName }}_v{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    allow_different_binary_count: true
+
+release:
+  name_template: "Kerbrute v{{ .Version }}"
+  github:
+    owner: halilkirazkaya
+    name: kerbrute
